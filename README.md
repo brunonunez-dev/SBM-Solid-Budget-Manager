@@ -59,6 +59,20 @@ O projeto segue o padrão de **Separação de Preocupações (SoC)**:
     - [ ] Deploy da aplicação (Streamlit Cloud ou Docker).
 
 
+## 📊 Modelagem de Dados (UML)
+
+Para garantir a integridade das transações financeiras, a estrutura da tabela foi desenhada da seguinte forma:
+
+classDiagram
+    class Transaction {
+        +int id
+        +string description
+        +decimal value
+        +string type
+        +string category
+        +date date
+    }
+
 
 ## 🧠 Decisões de Design
 
