@@ -26,10 +26,10 @@ O projeto segue o padrão de **Separação de Preocupações (SoC)**:
 - [x] **Fundação**
     - [x] Configuração do ambiente virtual e Git.
     - [x] Definição da arquitetura de pastas.
-- [ ] **Configuração do Banco de Dados (database.py) (Em Progresso)**
-    - [ ] Configuração do Engine SQLAlchemy (SQLite).
-    - [ ] Criação do Modelo de Dados Transacao.
-    - [ ] Implementação da função criar_banco.
+- [x] **Configuração do Banco de Dados (database.py) (Em Progresso)**
+    - [x] Configuração do Engine SQLAlchemy (SQLite).
+    - [x] Criação do Modelo de Dados Transacao.
+    - [x] Implementação da função criar_banco.
 - [ ] **Implementação do CRUD (crud.py)**
     - [ ] Função para salvar nova transação.
     - [ ] Função para listar todas as transações.
@@ -63,6 +63,7 @@ O projeto segue o padrão de **Separação de Preocupações (SoC)**:
 
 Para garantir a integridade das transações financeiras, a estrutura da tabela foi desenhada da seguinte forma:
 
+```mermaid
 classDiagram
     class Transaction {
         +int id
@@ -72,7 +73,7 @@ classDiagram
         +string category
         +date date
     }
-
+```
 
 ## 🧠 Decisões de Design
 
