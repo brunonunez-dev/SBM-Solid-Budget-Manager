@@ -31,7 +31,8 @@ O projeto segue o padrão de **Separação de Preocupações (SoC)**:
     - [x] Criação do Modelo de Dados Transacao.
     - [x] Implementação da função criar_banco.
 - [ ] **Implementação do CRUD (crud.py) (Em Progresso)**
-    - [x] Função para salvar nova transação.
+    - [x] Função para criar nova transação.
+    - [ ] Função para salvar nova transação.
     - [ ] Função para listar todas as transações.
     - [ ] Função para deletar transação por ID.
 - [ ] **Lógica de Negócio e Validações (services.py)**
