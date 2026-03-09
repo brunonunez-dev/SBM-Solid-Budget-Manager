@@ -6,7 +6,7 @@ def create_transaction(
     db:Session, 
     description:str,
     value:float,
-    type:str,
+    transaction_type:str,
     category:str,
     date:date
 ):
@@ -16,7 +16,7 @@ def create_transaction(
     db_transaction = Transaction(
         description=description,
         value=value,
-        type=type,
+        transaction_type=transaction_type,
         category=category,
         date=date
     )
