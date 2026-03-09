@@ -31,7 +31,7 @@ O projeto segue o padrão de **Separação de Preocupações (SoC)**:
     - [x] Criação do Modelo de Dados Transacao.
     - [x] Implementação da função criar_banco.
 - [ ] **Implementação do CRUD (crud.py)**
-    - [ ] Função para salvar nova transação.
+    - [x] Função para salvar nova transação.
     - [ ] Função para listar todas as transações.
     - [ ] Função para deletar transação por ID.
 - [ ] **Lógica de Negócio e Validações (services.py)**
@@ -61,7 +61,7 @@ O projeto segue o padrão de **Separação de Preocupações (SoC)**:
 
 ## 📊 Modelagem de Dados (UML)
 
-Para garantir a integridade das transações financeiras, a estrutura da tabela foi desenhada da seguinte forma:
+Para garantir a integridade das transações financeiras, a estrutura das tabelas foi desenhada da seguinte forma:
 
 ```mermaid
 classDiagram
@@ -69,7 +69,7 @@ classDiagram
         +int id
         +string description
         +decimal value
-        +string type
+        +string transaction_type
         +string category
         +date date
     }
@@ -86,3 +86,4 @@ Nesta seção, detalho as escolhas técnicas feitas para garantir que o **SBM** 
 
 - **Criação da Engine**: `check_same_thread": False` permite que o SQLite trabalhe com o modelo assíncrono do FastAPI/Streamlit.
 - **Configuração de Sessão**: `autoflush=False` e `autocommit=False` para garantir que as alterações só sejam persistidas após validações completas na camada de serviços.
+- **Modelo Transaction**: minimiza a perda de precisão numérica ao utilizar `asdecimal=True` na coluna `value` garantindo o tratamento adequado do tipo numérico mapeando os valores da classe `decimal.Decimal`.
