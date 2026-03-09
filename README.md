@@ -26,11 +26,11 @@ O projeto segue o padrão de **Separação de Preocupações (SoC)**:
 - [x] **Fundação**
     - [x] Configuração do ambiente virtual e Git.
     - [x] Definição da arquitetura de pastas.
-- [x] **Configuração do Banco de Dados (database.py) (Em Progresso)**
+- [x] **Configuração do Banco de Dados (database.py)**
     - [x] Configuração do Engine SQLAlchemy (SQLite).
     - [x] Criação do Modelo de Dados Transacao.
     - [x] Implementação da função criar_banco.
-- [ ] **Implementação do CRUD (crud.py)**
+- [ ] **Implementação do CRUD (crud.py) (Em Progresso)**
     - [x] Função para salvar nova transação.
     - [ ] Função para listar todas as transações.
     - [ ] Função para deletar transação por ID.
