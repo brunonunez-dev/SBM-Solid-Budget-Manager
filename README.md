@@ -69,7 +69,7 @@ classDiagram
         +int id
         +string description
         +decimal value
-        +string type
+        +string transaction_type
         +string category
         +date date
     }
