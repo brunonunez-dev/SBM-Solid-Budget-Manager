@@ -86,5 +86,11 @@ Nesta seção, detalho as escolhas técnicas feitas para garantir que o **SBM** 
 > ### Desenvolvimento:
 
 - **Criação da Engine**: `check_same_thread": False` permite que o SQLite trabalhe com o modelo assíncrono do FastAPI/Streamlit.
+
 - **Configuração de Sessão**: `autoflush=False` e `autocommit=False` para garantir que as alterações só sejam persistidas após validações completas na camada de serviços.
+
 - **Modelo Transaction**: minimiza a perda de precisão numérica ao utilizar `asdecimal=True` na coluna `value` garantindo o tratamento adequado do tipo numérico mapeando os valores da classe `decimal.Decimal`.
+
+- **Setup do Banco de Dados**: Para garantir que a infraestrutura está correta, utilize o script de setup que valida a conexão e a estrutura das tabelas.
+
+![Demonstração do Setup do Banco de Dados](assets/setup_db.gif)
