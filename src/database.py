@@ -14,7 +14,7 @@ class Transaction(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     description = Column(String, nullable=False)
-    value = Column(Numeric(10, 2), nullable=False, asdecimal=True)
+    value = Column(Numeric(10, 2, asdecimal=True), nullable=False)
     transaction_type = Column(String, nullable=False)
     category = Column(String, nullable=False)
     date = Column(Date, nullable=False)
