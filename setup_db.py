@@ -1,41 +1,43 @@
 import os
+import time
 from datetime import date
-from src.database import create_database, SessionLocal, DATABASE_URL, engine, Base
-from src.crud import create_transaction
+from src.database import engine, Base, SessionLocal
+from src.models import Transaction
+from src.services import create_transaction_service
 
-def test_database_setup():
-    print("Teste de infraestrutura do banco de dados iniciado!")
+def setup_and_test():
+    print("Iniciando Validação da Arquitetura...")
+    os.makedirs("./data", exist_ok=True)
+    time.sleep(0.2)
+    print("Criando Tabelas...")
+    Base.metadata.create_all(bind=engine)
 
-    db_path = "./data/sbm_database.db"
-    if os.path.exists(db_path):
-        os.remove(db_path)
-        print(f"Banco de dados antigo removido em {db_path}")
-
-
-    print("Criacao de tabelas iniciada!")
-    create_database()
-
-    print("Validação do create iniciada!")
     db=SessionLocal()
     try:
-        nova_transacao=create_transaction(
+        print("Testando Camada de Serviço...")
+        new_transaction = create_transaction_service(
             db=db,
-            description="Teste de Configuração",
-            value=1250.00,
-            transaction_type="Receita",
-            category="Salário",
-            date=date.today()
+            description="Teste de Arquitetura",
+            value=1254.74,
+            transaction_type="Despesa",
+            category="Alimentação",
+            date_obj=date.today()
         )
-        print(f"Transação {nova_transacao.description} criada!")
-        print(f"ID gerado: {nova_transacao.id}")
-        print(f"Valor: R$ {nova_transacao.value}, Tipo: {type(nova_transacao.value)}")
-        print(f"Tipo da transação: {nova_transacao.transaction_type}")
-        print(f"Categoria: {nova_transacao.category}")
-        print(f"Data: {nova_transacao.date}")
+        print(f"""
+        OK! Nova transação criada:
+        ID: {new_transaction.id}
+        Descrição: {new_transaction.description}
+        Valor: {new_transaction.value}
+        Tipo de Transação: {new_transaction.transaction_type}
+        Categoria: {new_transaction.category}
+        Data de Criação: {new_transaction.date}""")
     except Exception as e:
-        print(f"ERRO: {e}")
+        print(f"Erro: {e}")
     finally:
         db.close()
 
-if __name__=="__main__":
-    test_database_setup()
+if __name__ == "__main__":
+    setup_and_test()
+
+
+
