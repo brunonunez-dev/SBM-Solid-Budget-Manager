@@ -37,7 +37,7 @@ O projeto segue o padrão de **Separação de Preocupações (SoC)**:
 - [ ] Camada de Persistência - Repository Pattern (repository.py)
     - [x] Design Decision: Separação de Responsabilidades (SoC)
     - [x] Função save_transaction (Persistência básica).
-    - [/] Função para listar todas as transações (Query All).
+    - [ ] Função para listar todas as transações (Query All).
     - [ ] Função para deletar transação por ID (Delete).
 
 - [ ] Camada de Serviço - Lógica de Negócio (services.py)
@@ -109,7 +109,7 @@ Nesta seção, detalho as escolhas técnicas feitas para garantir que o **SBM** 
 
     Esta alteração aumenta a manutenabilidade do sistema.
 
-- **database.py(Pós-reestruturação do projeto)**: Após a adaptação para o SoC o databse.py foi alterado para conter apenas a configuração da `engine` e `sessionlocal`, definição da `base` para os modelos e a criação da função que cria o banco de dados e faz a injeção de dependência do mesmo, assegurando assim que cada uma das conexões com ele serão devidamente fechadas.
+- **database.py(Pós-reestruturação do projeto)**: Após a adaptação para o SoC o database.py foi alterado para conter apenas a configuração da `engine` e `sessionlocal`, definição da `base` para os modelos e a criação da função que cria o banco de dados e faz a injeção de dependência do mesmo, assegurando assim que cada uma das conexões com ele serão devidamente fechadas.
 
 - **models.py(Pós-reestruturação do projeto)**: Após a adaptação para o SoC o models.py ficou responsável pela definição da estrutura das tabelas(o schema).
 
