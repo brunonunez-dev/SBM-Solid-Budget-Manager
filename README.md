@@ -32,6 +32,7 @@ O projeto segue o padrão de **Separação de Preocupações (SoC)**:
     - [x] Implementação da função criar_banco.
 - [ ] **Implementação do CRUD (crud.py) (Em Progresso)**
     - [x] Função para criar nova transação.
+    - [x] **Controle de Qualidade: Desenvolvimento de Script de [Validação de Infraestrutura](#-decisões-de-design) (`setup_db.py`)**
     - [ ] Função para salvar nova transação.
     - [ ] Função para listar todas as transações.
     - [ ] Função para deletar transação por ID.
