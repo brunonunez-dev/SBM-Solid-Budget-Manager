@@ -47,7 +47,7 @@ O projeto segue o padrão de **Separação de Preocupações (SoC)**:
     - [ ] Processamento de dados para Dashboard (Agrupamentos).
 
 - [ ] Interface do Usuário (app.py - Streamlit)
-    - [ ] Criação do formulário de entrada de dados.
+    - [x] Criação do formulário de entrada de dados.
     - [ ] Desenvolvimento da tabela de exibição de histórico.
     - [ ] Dashboard Visual:
         - [ ] Gráfico de pizza por categoria.
@@ -116,3 +116,7 @@ Nesta seção, detalho as escolhas técnicas feitas para garantir que o **SBM** 
 - **repository.py(Pós-reestruturação do projeto)**: Após a adaptação para o SoC o repository.py ficou responsável por receber o objeto de transaction e o salva no banco de dados(persistência) fazendo o rollback da ação caso alguma exception ocorrer.
 
 - **services.py(Pós-reestruturação do projeto)**: Após a adaptação para o SoC o services.py valida os dados com base na lógica de negócios fazendo a ponte do app.py com a chamada para o banco de dados poupando chamadas desnecessárias e economizando processamento.
+
+- **Gestão da Sessão**: Implementado o padrão Context Manager para injetar a sessão do banco de dados na camada de serviço. Isso garante que cada transação tenha seu próprio ciclo de vida, sendo devidamente fechada após a execução, o que evita concorrência de dados e vazamentos de memória.
+
+- **Inicialização do Schema**: Para evitar conflitos de escrita com a possível inexistência das tabelas do banco de dados, foi implementada a inicialização automatica das tabelas no inicio da aplicação.
