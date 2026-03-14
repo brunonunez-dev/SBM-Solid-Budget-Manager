@@ -37,7 +37,7 @@ O projeto segue o padrão de **Separação de Preocupações (SoC)**:
 - [ ] Camada de Persistência - Repository Pattern (repository.py)
     - [x] Design Decision: Separação de Responsabilidades (SoC)
     - [x] Função save_transaction (Persistência básica).
-    - [ ] Função para listar todas as transações (Query All).
+    - [x] Função para listar todas as transações (Query All).
     - [ ] Função para deletar transação por ID (Delete).
 
 - [ ] Camada de Serviço - Lógica de Negócio (services.py)
