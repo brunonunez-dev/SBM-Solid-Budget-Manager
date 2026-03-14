@@ -13,3 +13,10 @@ def save_transaction_repository(db:Session, transaction_obj:Transaction):
     except Exception as e:
         db.rollback()
         raise e
+    
+
+def get_all_transactions_repository(db:Session):
+    """
+    Retorna todas as transações ordenadas pela data mais recente.
+    """
+    return db.query(Transaction).order_by(Transaction.date.desc()).all()
