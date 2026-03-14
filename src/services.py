@@ -1,4 +1,5 @@
 from sqlalchemy.orm import Session
+from decimal import Decimal
 from datetime import date
 from src.models import Transaction
 from src.repository import save_transaction_repository
@@ -9,6 +10,8 @@ def create_transaction_service(db:Session, description:str, value:float, transac
     """
     if value <= 0:
         raise ValueError("O valor da transação deve ser maior que zero.")
+    
+    value_decimal = Decimal(str(value))
     
     new_transaction = Transaction(
         description=description,
