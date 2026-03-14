@@ -1,7 +1,7 @@
 import streamlit as st
-from src.services import create_transaction_service
 from datetime import date
 from src.database import get_db, init_db
+from src.services import create_transaction_service, get_transactions_service
 
 init_db()
 
@@ -46,3 +46,24 @@ with st.form("transaction_form", clear_on_submit=True):
                 st.error(f"Erro interno no sistema: {e}")
             finally:
                 db.close()
+
+
+st.divider()
+st.subheader("Histórico de Transações")
+
+with get_db() as db:
+    transactions = get_transactions_service(db)
+    if transactions:
+        data = [
+            {
+                "Data": tx.date.strftime("%d/%m/%Y"),
+                "Descrição": tx.description,
+                "Categoria": tx.category,
+                "Tipo": tx.transaction_type,
+                "Valor": f"R$ {tx.value:,.2f}"
+            }
+            for tx in transactions
+        ]
+        st.dataframe(data)
+    else:
+        st.info("Nenhuma transação cadastrada ainda.")
